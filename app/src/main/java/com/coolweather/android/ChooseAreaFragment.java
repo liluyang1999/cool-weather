@@ -50,6 +50,7 @@ public class ChooseAreaFragment extends Fragment {
     private List<Province> provinceList;
     private List<City> cityList;
     private List<County> countyList;
+
     private Province selectedProvince;
     private City selectedCity;
     private int currentLevel;
@@ -145,7 +146,7 @@ public class ChooseAreaFragment extends Fragment {
 
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
-        backButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.VISIBLE);
         countyList = LitePal
                 .where("cityid = ?",String.valueOf(selectedCity.getId()))
                 .find(County.class);
@@ -235,6 +236,5 @@ public class ChooseAreaFragment extends Fragment {
             progressDialog.dismiss();
         }
     }
-
 
 }
